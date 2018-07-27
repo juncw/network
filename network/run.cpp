@@ -3,9 +3,11 @@
 #include <math.h>
 using namespace std;
 
-
+// 判断两个点是否存在通路
 bool isPathConnect(int** network, int startX, int startY, int endX, int endY);
+// 判断节点是否到每个节点都通，用node记录
 void isConnectBetweenNode(int** network, int** node, int i, int j, int m, int n);
+// 判断记录和已保存的节点是否一致
 bool isNodeEqual(int** node1, int** node2, int m, int n);
 //const int MAX_NETWORK_SIZE = 100;
 int main(void) {
@@ -69,7 +71,7 @@ int main(void) {
 					++j;
 				}
 				else {
-					cout << "1.Invalid number format." << endl;
+					cout << "Invalid number format." << endl;
 					return -1;
 				}
 			}
@@ -88,7 +90,7 @@ int main(void) {
 					++j;
 				}
 				else {
-					cout << "2.Invalid number format." << endl;
+					cout << "Invalid number format." << endl;
 					return -1;
 				}
 			}
@@ -108,7 +110,7 @@ int main(void) {
 					++j;
 				}
 				else {
-					cout << "3.Invalid number format." << endl;
+					cout << "Invalid number format." << endl;
 					return -1;
 				}
 			}
@@ -116,13 +118,12 @@ int main(void) {
 			endY = value*isNeg;
 
 			// 处理异常和路线制定
-			if (startX < 0 || startY < 0 || endX < 0 || endY < 0 || startX > m || endX > m ||
-				startY > n || endY > n){
+			if (startX < 0 || startY < 0 || endX < 0 || endY < 0 || startX >= m || endX >= m ||
+				startY >= n || endY >= n){
 				//cout << startX << " " << startY << " " << endX << " " << endY << "---";
-				cout << "4.Number out of range." << endl;
+				cout << "Number out of range." << endl;
 				return -1;
-			}
-			else {
+			}else {
 				// network连接
 				if(startX == endX || startY == endY && abs(startX-endX) <= 1 || abs(startY-endY) <= 1){
 					// network赋值
@@ -152,7 +153,7 @@ int main(void) {
 					endY = -1;
 
 				}else {
-					cout << "5.Incorrect command format." << endl;
+					cout << "Incorrect command format." << endl;
 					return -1;
 				}
 			}
@@ -170,7 +171,7 @@ int main(void) {
 					++j;
 				}
 				else {
-					cout << "6.Invalid number format." << endl;
+					cout << "Invalid number format." << endl;
 					return -1;
 				}
 			}
