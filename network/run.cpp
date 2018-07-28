@@ -71,7 +71,7 @@ int main(void) {
 					++j;
 				}
 				else {
-					cout << "Invalid number format." << endl;
+					cout << "1.Invalid number format." << endl;
 					return -1;
 				}
 			}
@@ -90,7 +90,7 @@ int main(void) {
 					++j;
 				}
 				else {
-					cout << "Invalid number format." << endl;
+					cout << "2.Invalid number format." << endl;
 					return -1;
 				}
 			}
@@ -98,6 +98,13 @@ int main(void) {
 			startY = value*isNeg;
 
 		}else if (strNodeBridge[i] == ';' || strNodeBridge[i+1] == '\0') {   // endY
+			if (strNodeBridge[i + 1] == '\0') {
+				if (strNodeBridge[i] < '0' || strNodeBridge[i] > '9') {
+					cout << "3.Invalid number format." << endl;
+					return -1;
+				}
+				strSelectNode += strNodeBridge[i];
+			}
 			int j = 0, value = 0;
 			int isNeg = 1;
 			if (strSelectNode[j] == '-') {
@@ -110,7 +117,7 @@ int main(void) {
 					++j;
 				}
 				else {
-					cout << "Invalid number format." << endl;
+					cout << "4.Invalid number format." << endl;
 					return -1;
 				}
 			}
@@ -121,11 +128,11 @@ int main(void) {
 			if (startX < 0 || startY < 0 || endX < 0 || endY < 0 || startX >= m || endX >= m ||
 				startY >= n || endY >= n){
 				//cout << startX << " " << startY << " " << endX << " " << endY << "---";
-				cout << "Number out of range." << endl;
+				cout << "5.Number out of range." << endl;
 				return -1;
 			}else {
 				// network连接
-				if(startX == endX || startY == endY && abs(startX-endX) <= 1 || abs(startY-endY) <= 1){
+				if( startX == endX && abs(startY - endY) <= 1 || startY == endY && abs(startX-endX) <= 1 ){
 					// network赋值
 					if (firstNodeX == -1 && firstNodeY == -1) {
 						firstNodeX = startX;
@@ -153,7 +160,7 @@ int main(void) {
 					endY = -1;
 
 				}else {
-					cout << "Incorrect command format." << endl;
+					cout << "6.Incorrect command format." << endl;
 					return -1;
 				}
 			}
@@ -171,7 +178,7 @@ int main(void) {
 					++j;
 				}
 				else {
-					cout << "Invalid number format." << endl;
+					cout << "7.Invalid number format." << endl;
 					return -1;
 				}
 			}
@@ -182,6 +189,10 @@ int main(void) {
 			strNodeBridge[i] == '-') {
 			strSelectNode += strNodeBridge[i];
 		}
+		else {
+			cout << "8.Incorrect command format." << endl;
+			return -1;
+}
 	}
 
 	// 短路检测
@@ -195,7 +206,7 @@ int main(void) {
 			cout << endl;
 		}
 */
-		cout << "Maze format error." << endl;
+		cout << "9.Maze format error." << endl;
 /*		for (int i = 0; i < m; ++i) {
 			for (int j = 0; j < n; ++j) {
 				cout << node2[i][j] << " ";
