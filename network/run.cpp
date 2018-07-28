@@ -219,6 +219,18 @@ int main(void) {
 		}
 		cout << endl;
 	}
+
+	// ÊÍ·Å¿Õ¼ä
+	for (int i = 0; i < (2 * m + 1); ++i) {
+		delete[] network[i];
+	}
+	delete[] network;
+	for (int i = 0; i < m; ++i) {
+		delete[] node[i];
+		delete[] node2[i];
+	}
+	delete[] node;
+	delete[] node2;
 	return 0;
 }
 
